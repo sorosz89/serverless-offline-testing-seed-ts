@@ -8,3 +8,4 @@ jspm_packages
 
 # Other
 .env
+.husky
