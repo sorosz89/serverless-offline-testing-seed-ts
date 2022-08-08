@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  SLS_PORT: 3000
+
 jobs:
   build:
 
