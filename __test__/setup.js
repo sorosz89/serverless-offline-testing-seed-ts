@@ -1,5 +1,5 @@
 // global-setup.js
-const { setup: setupDevServer } = require('jest-dev-server')
+const { setup: setupDevServer } = require('jest-dev-server');
 
 module.exports = async function globalSetup() {
   await setupDevServer({
@@ -9,10 +9,9 @@ module.exports = async function globalSetup() {
     usedPortAction: 'kill',
     waitOnScheme: {
       //delay: "Server ready: http://localhost:3000",
-      interval: "500",
-      resources: ['http://localhost:3000']
-
-    }
-  })
+      interval: '500',
+      resources: ['http://localhost:3000'],
+    },
+  });
   // Your global setup
-}
+};
