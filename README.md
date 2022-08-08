@@ -87,3 +87,19 @@ serverless offline
 ```
 
 To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
+
+### Testing
+
+The integration tests are built on `serverless-offline` plugin with `Jest`.
+
+#### Precondition
+
+Start local emulation with:
+```
+yarn start
+```
+#### Usage
+Execute tests with:
+```
+yarn test
+```
