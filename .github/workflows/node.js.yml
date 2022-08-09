@@ -14,7 +14,7 @@ env:
   SLS_PORT: 3000
 
 jobs:
-  integration-test:
+  build:
 
     runs-on: ubuntu-latest
 
@@ -34,24 +34,9 @@ jobs:
     
     # Starts local server and integration test
     - run: npm run test:integration
-
-build-deploy-e2e-test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
+    - run: npm run cleanup
 
     # Deploy and E2E testing
-    steps:
     - name: serverless deploy
       uses: serverless/github-action@v3.1
       with:
