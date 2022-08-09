@@ -34,6 +34,11 @@ jobs:
     
     # Starts local server and integration test
     - run: npm run test:integration
+    - name: Archive integration test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: integration-test-report
+          path: test-report/
     - run: npm run cleanup
 
     # Deploy and E2E testing
@@ -45,3 +50,8 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - run: npm run test:e2e
+    - name: Archive e2e test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: e2e-test-report
+          path: test-report/
