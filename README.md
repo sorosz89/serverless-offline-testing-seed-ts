@@ -88,18 +88,20 @@ serverless offline
 
 To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
 
+The project uses [serverless-plugin-typescript](https://www.serverless.com/plugins/serverless-plugin-typescript) for TypeScript support.
+
 ### Testing
 
 The integration tests are built on `serverless-offline` plugin with `Jest`.
 
-#### Precondition
-
-Start local emulation with:
-```
-yarn start
-```
 #### Usage
-Execute tests with:
+
+Execute integration tests against offline dev server with:
 ```
-yarn test
+yarn test:integration
+```
+
+Execute e2e tests against deployed resources with:
+```
+yarn test:e2e
 ```
