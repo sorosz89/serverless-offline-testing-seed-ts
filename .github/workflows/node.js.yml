@@ -32,5 +32,9 @@ jobs:
         cache: 'npm'
     - run: npm install
     
-    # Starts local server and test
-    - run: npm test
+    # Starts local server and integration test
+    - run: npm run test:integration
+
+    # Deploy and E2E testing
+    - run: serverless deploy
+    - run: npm run test:integration
