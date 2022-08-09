@@ -9,3 +9,4 @@ jspm_packages
 # Other
 .env
 .husky
+test-report
