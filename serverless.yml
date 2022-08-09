@@ -13,6 +13,13 @@ functions:
       - httpApi:
           path: /
           method: get
+
+  hellotest:
+    handler: src/hello-test.handler
+    events:
+      - httpApi:
+          path: /test
+          method: get
           
 plugins:
   - serverless-offline-lambda
