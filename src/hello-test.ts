@@ -9,7 +9,7 @@ export const handler = async (
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: 'hello test',
+      message: 'The endpoint is up and running!',
     }),
   };
 };

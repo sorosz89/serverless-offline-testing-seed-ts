@@ -8,7 +8,7 @@ module.exports = async function globalSetup() {
     usedPortAction: 'kill',
     waitOnScheme: {
       interval: '500',
-      resources: ['http://localhost:3000'],
+      resources: ['http://localhost:3000/test'],
     },
   });
 };
