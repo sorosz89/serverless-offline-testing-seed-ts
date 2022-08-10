@@ -5,6 +5,12 @@ provider:
   name: aws
   runtime: nodejs14.x
   region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:us-east-1:698686979897:table/TodoTable
 
 functions:
   hello:
@@ -20,6 +26,34 @@ functions:
       - httpApi:
           path: /test
           method: get
+
+  add-todo:
+    handler: src/add-todo.handler
+    events:
+      - httpApi:
+          path: /add-todo
+          method: post
+
+  fetch-todos:
+    handler: src/fetch-todos.handler
+    events:
+      - httpApi:
+          path: /todos
+          method: get
+
+resources:
+  Resources:
+    TodoTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: TodoTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
           
 plugins:
   - serverless-offline-lambda

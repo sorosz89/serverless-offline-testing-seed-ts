@@ -48,5 +48,8 @@
     "setupFiles": [
       "dotenv/config"
     ]
+  },
+  "dependencies": {
+    "uuid": "^8.3.2"
   }
 }
